@@ -6,6 +6,7 @@ import './auth_screen.dart';
 import './dashboard.dart';
 import './plant_master/plant_master.dart';
 import './plant_master/add_plant_master.dart';
+import './plant_master/edit_plant_master.dart';
 import './loading_screen.dart';
 import './error_screen.dart';
 
@@ -33,6 +34,7 @@ class AppContainerScreen extends StatelessWidget {
         Dashboard.routeName: (ctx) => Dashboard(),
         PlantMaster.routeName: (ctx) => PlantMaster(),
         AddPlantMaster.routeName: (ctx) => AddPlantMaster(),
+        EditPlantMaster.routeName: (ctx) => EditPlantMaster(),
       },
     );
   }

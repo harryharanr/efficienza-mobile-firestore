@@ -21,11 +21,12 @@ class _AddPlantMasterState extends State<AddPlantMaster> {
     'primaryContact': '',
   };
 
+  var _isInit = true;
+  var _isLoading = false;
+  var itemId;
+
   void _saveForm() async {
     final User user = FirebaseAuth.instance.currentUser;
-    print('currentUser while saving');
-    print(user);
-    print('currentUser while saving');
     final isValid = _fbKey.currentState.saveAndValidate();
 
     if (!isValid) {
