@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "935077893187",
+    "firebase_url": "https://efficienza-mobile-app.firebaseio.com",
+    "project_id": "efficienza-mobile-app",
+    "storage_bucket": "efficienza-mobile-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:935077893187:android:4ad23c940f8d0ac6cbf0f6",
+        "android_client_info": {
+          "package_name": "com.example.efficienza_mobile_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "935077893187-idptqjd0bcv0jc1iju10udiqj4hujsfo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCN69mw5lon9XJrdqmgYxMUqlyEONuqnUI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "935077893187-idptqjd0bcv0jc1iju10udiqj4hujsfo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
