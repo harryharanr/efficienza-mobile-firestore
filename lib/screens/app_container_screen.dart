@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
-import './auth_screen.dart';
 import './dashboard.dart';
 import './plant_master/plant_master.dart';
 import './plant_master/add_plant_master.dart';
 import './plant_master/edit_plant_master.dart';
-import './loading_screen.dart';
-import './error_screen.dart';
+import './shopfloor_master/shopfloor_master.dart';
+import './shopfloor_master/add_shopfloor_master.dart';
+import './shopfloor_master/edit_shopfloor_master.dart';
 
 class AppContainerScreen extends StatelessWidget {
   @override
@@ -35,6 +33,9 @@ class AppContainerScreen extends StatelessWidget {
         PlantMaster.routeName: (ctx) => PlantMaster(),
         AddPlantMaster.routeName: (ctx) => AddPlantMaster(),
         EditPlantMaster.routeName: (ctx) => EditPlantMaster(),
+        ShopfloorMaster.routeName: (ctx) => ShopfloorMaster(),
+        AddShopfloorMaster.routeName: (ctx) => AddShopfloorMaster(),
+        EditShopfloorMaster.routeName: (ctx) => EditShopfloorMaster(),
       },
     );
   }

@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 import '../screens/dashboard.dart';
 import '../screens/plant_master/plant_master.dart';
+import '../screens/shopfloor_master/shopfloor_master.dart';
 
 class AppDrawer extends StatelessWidget {
   @override
@@ -33,16 +34,19 @@ class AppDrawer extends StatelessWidget {
           ),
           Divider(),
           ListTile(
+            leading: Icon(Icons.shop),
+            title: Text('Shopfloor Master'),
+            onTap: () {
+              Navigator.of(context)
+                  .pushReplacementNamed(ShopfloorMaster.routeName);
+            },
+          ),
+          Divider(),
+          ListTile(
             leading: Icon(Icons.logout),
             title: Text('Logout'),
             onTap: () async {
-              try {
-                await _firebaseAuth.signOut();
-              } catch (error) {
-                print('Error while signing out');
-                print(error);
-                print('Error while signing out');
-              }
+              await _firebaseAuth.signOut();
             },
           ),
         ],

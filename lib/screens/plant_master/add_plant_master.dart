@@ -21,8 +21,6 @@ class _AddPlantMasterState extends State<AddPlantMaster> {
     'primaryContact': '',
   };
 
-  var _isInit = true;
-  var _isLoading = false;
   var itemId;
 
   void _saveForm() async {

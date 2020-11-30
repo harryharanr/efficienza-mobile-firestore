@@ -1,46 +1,47 @@
+import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
 
 import '../../widgets/app_drawer.dart';
-import './add_plant_master.dart';
-import './edit_plant_master.dart';
+import './add_shopfloor_master.dart';
+import './edit_shopfloor_master.dart';
 
-class PlantMaster extends StatelessWidget {
-  static const routeName = '/plant-master';
+class ShopfloorMaster extends StatelessWidget {
+  static const routeName = '/shopfloor-master';
 
   @override
   Widget build(BuildContext context) {
     final User user = FirebaseAuth.instance.currentUser;
+
     return Scaffold(
       drawer: AppDrawer(),
       appBar: AppBar(
-        title: Text('Plant Master'),
+        title: Text('Shopfloor Master'),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.add),
             onPressed: () {
-              Navigator.of(context).pushNamed(AddPlantMaster.routeName);
+              Navigator.of(context).pushNamed(AddShopfloorMaster.routeName);
             },
           ),
         ],
       ),
       body: StreamBuilder<QuerySnapshot>(
         stream: FirebaseFirestore.instance
-            .collection('plant_master')
+            .collection('shopfloor_master')
             .where('createdBy', isEqualTo: user.uid)
             .snapshots(),
-        builder: (ctx, AsyncSnapshot<QuerySnapshot> plantMasterSnapshot) {
-          if (plantMasterSnapshot.connectionState == ConnectionState.waiting) {
+        builder: (ctx, AsyncSnapshot<QuerySnapshot> shopfloorMasterSnapshot) {
+          if (shopfloorMasterSnapshot.connectionState ==
+              ConnectionState.waiting) {
             return Center(
               child: CircularProgressIndicator(),
             );
           }
-
-          if (plantMasterSnapshot.data.docs.length == 0) {
+          if (shopfloorMasterSnapshot.data.docs.length == 0) {
             return Center(
               child: Text(
-                'No Plant has been added yet!',
+                'No Shopfloor has been added yet!',
                 style: TextStyle(
                   color: Theme.of(context).primaryColor,
                   fontSize: 20,
@@ -50,17 +51,17 @@ class PlantMaster extends StatelessWidget {
             );
           }
 
-          final plantMasterDocs = plantMasterSnapshot.data.docs;
+          final shopfloorMasterDocs = shopfloorMasterSnapshot.data.docs;
 
           return Padding(
             padding: const EdgeInsets.all(8.0),
             child: ListView.builder(
-                itemCount: plantMasterDocs.length,
+                itemCount: shopfloorMasterDocs.length,
                 itemBuilder: (ctx, index) {
                   return Column(
                     children: [
                       Dismissible(
-                        key: ValueKey(plantMasterDocs[index].id),
+                        key: ValueKey(shopfloorMasterDocs[index].id),
                         background: Container(
                           color: Theme.of(context).errorColor,
                           child: Icon(
@@ -74,23 +75,24 @@ class PlantMaster extends StatelessWidget {
                         direction: DismissDirection.endToStart,
                         onDismissed: (direction) async {
                           await FirebaseFirestore.instance
-                              .collection('plant_master')
-                              .doc(plantMasterDocs[index].id)
+                              .collection('shopfloor_master')
+                              .doc(shopfloorMasterDocs[index].id)
                               .delete();
                         },
                         child: ListTile(
-                          onTap: () {},
                           leading: CircleAvatar(
                             child: Text((index + 1).toString()),
                           ),
-                          title: Text(plantMasterDocs[index]['plantName']),
-                          subtitle: Text(plantMasterDocs[index]['address']),
+                          title:
+                              Text(shopfloorMasterDocs[index]['shopfloorName']),
+                          subtitle:
+                              Text(shopfloorMasterDocs[index]['plantName']),
                           trailing: IconButton(
                             icon: Icon(Icons.edit),
                             onPressed: () {
                               Navigator.of(context).pushNamed(
-                                  EditPlantMaster.routeName,
-                                  arguments: plantMasterDocs[index].id);
+                                  EditShopfloorMaster.routeName,
+                                  arguments: shopfloorMasterDocs[index].id);
                             },
                           ),
                         ),
