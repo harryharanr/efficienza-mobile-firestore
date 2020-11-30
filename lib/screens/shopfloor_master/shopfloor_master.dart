@@ -86,7 +86,7 @@ class ShopfloorMaster extends StatelessWidget {
                           title:
                               Text(shopfloorMasterDocs[index]['shopfloorName']),
                           subtitle:
-                              Text(shopfloorMasterDocs[index]['plantName']),
+                              Text(shopfloorMasterDocs[index]['description']),
                           trailing: IconButton(
                             icon: Icon(Icons.edit),
                             onPressed: () {

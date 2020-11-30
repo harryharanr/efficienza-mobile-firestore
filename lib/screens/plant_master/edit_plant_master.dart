@@ -59,77 +59,78 @@ class _EditPlantMasterState extends State<EditPlantMaster> {
         title: Text('Edit Plant Screen'),
       ),
       body: FutureBuilder(
-          future: FirebaseFirestore.instance
-              .collection('plant_master')
-              .doc(itemId)
-              .get(),
-          builder: (ctx, AsyncSnapshot<DocumentSnapshot> snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return Center(
-                child: CircularProgressIndicator(),
-              );
-            }
-            if (snapshot.hasData == false) {
-              return Center(
-                child: Text('No data!'),
-              );
-            }
-            final fetchedItem = snapshot.data.data();
-            _initValues = {
-              'plantName': fetchedItem['plantName'],
-              'address': fetchedItem['address'],
-              'primaryContact': fetchedItem['primaryContact'],
-            };
-            return FormBuilder(
-              key: _fbKey,
-              initialValue: _initValues,
-              child: Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: <Widget>[
-                      SizedBox(height: 20),
-                      buildTextField(
-                        attribute: 'plantName',
-                        labelText: 'Plant Name',
-                      ),
-                      SizedBox(height: 20),
-                      buildTextField(
-                        attribute: 'primaryContact',
-                        labelText: 'Primary Contact',
-                      ),
-                      SizedBox(height: 20),
-                      buildTextField(
-                        attribute: 'address',
-                        labelText: 'Address',
-                      ),
-                      SizedBox(height: 20),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: <Widget>[
-                          Expanded(
-                            child: ElevatedButton(
-                              child: Text('Update'),
-                              onPressed: _updateForm,
-                            ),
+        future: FirebaseFirestore.instance
+            .collection('plant_master')
+            .doc(itemId)
+            .get(),
+        builder: (ctx, AsyncSnapshot<DocumentSnapshot> snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          if (snapshot.hasData == false) {
+            return Center(
+              child: Text('No data!'),
+            );
+          }
+          final fetchedItem = snapshot.data.data();
+          _initValues = {
+            'plantName': fetchedItem['plantName'],
+            'address': fetchedItem['address'],
+            'primaryContact': fetchedItem['primaryContact'],
+          };
+          return FormBuilder(
+            key: _fbKey,
+            initialValue: _initValues,
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: <Widget>[
+                    SizedBox(height: 20),
+                    buildTextField(
+                      attribute: 'plantName',
+                      labelText: 'Plant Name',
+                    ),
+                    SizedBox(height: 20),
+                    buildTextField(
+                      attribute: 'primaryContact',
+                      labelText: 'Primary Contact',
+                    ),
+                    SizedBox(height: 20),
+                    buildTextField(
+                      attribute: 'address',
+                      labelText: 'Address',
+                    ),
+                    SizedBox(height: 20),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: <Widget>[
+                        Expanded(
+                          child: ElevatedButton(
+                            child: Text('Update'),
+                            onPressed: _updateForm,
                           ),
-                          SizedBox(width: 20),
-                          Expanded(
-                            child: ElevatedButton(
-                              child: Text('Reset'),
-                              onPressed: () {
-                                _fbKey.currentState.reset();
-                              },
-                            ),
+                        ),
+                        SizedBox(width: 20),
+                        Expanded(
+                          child: ElevatedButton(
+                            child: Text('Reset'),
+                            onPressed: () {
+                              _fbKey.currentState.reset();
+                            },
                           ),
-                        ],
-                      ),
-                    ],
-                  ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
-            );
-          }),
+            ),
+          );
+        },
+      ),
     );
   }
 }
