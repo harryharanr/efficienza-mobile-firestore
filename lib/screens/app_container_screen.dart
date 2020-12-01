@@ -4,9 +4,14 @@ import './dashboard.dart';
 import './plant_master/plant_master.dart';
 import './plant_master/add_plant_master.dart';
 import './plant_master/edit_plant_master.dart';
+
 import './shopfloor_master/shopfloor_master.dart';
 import './shopfloor_master/add_shopfloor_master.dart';
 import './shopfloor_master/edit_shopfloor_master.dart';
+
+import './shift_master/shift_master.dart';
+import './shift_master/add_shift_master.dart';
+import './shift_master/edit_shift_master.dart';
 
 class AppContainerScreen extends StatelessWidget {
   @override
@@ -36,6 +41,9 @@ class AppContainerScreen extends StatelessWidget {
         ShopfloorMaster.routeName: (ctx) => ShopfloorMaster(),
         AddShopfloorMaster.routeName: (ctx) => AddShopfloorMaster(),
         EditShopfloorMaster.routeName: (ctx) => EditShopfloorMaster(),
+        ShiftMaster.routeName: (ctx) => ShiftMaster(),
+        AddShiftMaster.routeName: (ctx) => AddShiftMaster(),
+        EditShiftMaster.routeName: (ctx) => EditShiftMaster(),
       },
     );
   }

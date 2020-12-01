@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import '../screens/dashboard.dart';
 import '../screens/plant_master/plant_master.dart';
 import '../screens/shopfloor_master/shopfloor_master.dart';
+import '../screens/shift_master/shift_master.dart';
 
 class AppDrawer extends StatelessWidget {
   @override
@@ -39,6 +40,14 @@ class AppDrawer extends StatelessWidget {
             onTap: () {
               Navigator.of(context)
                   .pushReplacementNamed(ShopfloorMaster.routeName);
+            },
+          ),
+          Divider(),
+          ListTile(
+            leading: Icon(Icons.timer),
+            title: Text('Shift Master'),
+            onTap: () {
+              Navigator.of(context).pushReplacementNamed(ShiftMaster.routeName);
             },
           ),
           Divider(),

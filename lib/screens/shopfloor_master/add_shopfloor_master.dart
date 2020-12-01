@@ -24,8 +24,6 @@ class _AddShopfloorMasterState extends State<AddShopfloorMaster> {
     'primaryContact': '',
   };
 
-  var itemId;
-
   void _saveForm() async {
     final isValid = _fbKey.currentState.saveAndValidate();
 
