@@ -6,6 +6,7 @@ import '../date_converter.dart';
 Widget buildTimePicker(
     {String initialValue, String attribute, String labelText}) {
   return FormBuilderDateTimePicker(
+    timePickerInitialEntryMode: TimePickerEntryMode.dial,
     initialValue: dateConverter(initialValue),
     attribute: attribute,
     inputType: InputType.time,

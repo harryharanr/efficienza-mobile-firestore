@@ -56,7 +56,7 @@ class _EditPlantMasterState extends State<EditPlantMaster> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Edit Plant Screen'),
+        title: Text('Edit Plant Master'),
       ),
       body: FutureBuilder(
         future: FirebaseFirestore.instance

@@ -58,7 +58,7 @@ class _EditShopfloorMasterState extends State<EditShopfloorMaster> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Edit Shopfloor Screen'),
+        title: Text('Edit Shopfloor'),
       ),
       body: FutureBuilder(
         future: FirebaseFirestore.instance
