@@ -23,7 +23,6 @@ class _AuthScreenState extends State<AuthScreen> {
     BuildContext ctx,
   ) async {
     UserCredential authResult;
-
     try {
       setState(() {
         _isLoading = true;
@@ -38,17 +37,17 @@ class _AuthScreenState extends State<AuthScreen> {
           email: email,
           password: password,
         );
-
-        await authResult.user.sendEmailVerification();
-        await FirebaseFirestore.instance
-            .collection('users')
-            .doc(authResult.user.uid)
-            .set(
-          {
-            'username': username,
-            'email': email,
-          },
-        );
+        if (authResult.user != null) {
+          await FirebaseFirestore.instance
+              .collection('users')
+              .doc(authResult.user.uid)
+              .set(
+            {
+              'username': username,
+              'email': email,
+            },
+          );
+        }
       }
     } on PlatformException catch (error) {
       var message = 'An error occured . Please check your credentials';
