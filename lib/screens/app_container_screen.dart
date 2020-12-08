@@ -13,6 +13,10 @@ import './shift_master/shift_master.dart';
 import './shift_master/add_shift_master.dart';
 import './shift_master/edit_shift_master.dart';
 
+import './routine_master/routine_master.dart';
+import './routine_master/add_routine_master.dart';
+import './routine_master/edit_routine_master.dart';
+
 class AppContainerScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -44,6 +48,9 @@ class AppContainerScreen extends StatelessWidget {
         ShiftMaster.routeName: (ctx) => ShiftMaster(),
         AddShiftMaster.routeName: (ctx) => AddShiftMaster(),
         EditShiftMaster.routeName: (ctx) => EditShiftMaster(),
+        RoutineMaster.routeName: (ctx) => RoutineMaster(),
+        AddRoutineMaster.routeName: (ctx) => AddRoutineMaster(),
+        EditRoutineMaster.routeName: (ctx) => EditRoutineMaster(),
       },
     );
   }

@@ -5,6 +5,7 @@ import '../screens/dashboard.dart';
 import '../screens/plant_master/plant_master.dart';
 import '../screens/shopfloor_master/shopfloor_master.dart';
 import '../screens/shift_master/shift_master.dart';
+import '../screens/routine_master/routine_master.dart';
 
 class AppDrawer extends StatelessWidget {
   @override
@@ -48,6 +49,15 @@ class AppDrawer extends StatelessWidget {
             title: Text('Shift Master'),
             onTap: () {
               Navigator.of(context).pushReplacementNamed(ShiftMaster.routeName);
+            },
+          ),
+          Divider(),
+          ListTile(
+            leading: Icon(Icons.repeat),
+            title: Text('Routine Master'),
+            onTap: () {
+              Navigator.of(context)
+                  .pushReplacementNamed(RoutineMaster.routeName);
             },
           ),
           Divider(),
