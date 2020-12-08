@@ -44,7 +44,6 @@ class _AddRoutineMasterState extends State<AddRoutineMaster> {
         'equipmentName': _fbKey.currentState.value['equipmentName'],
         'counterUnit': _fbKey.currentState.value['counterUnit'],
         'counterType': _fbKey.currentState.value['counterType'],
-        'primaryContact': _fbKey.currentState.value['primaryContact'],
         'periodInMonths': _fbKey.currentState.value['periodInMonths'],
         'periodInYears': _fbKey.currentState.value['periodInYears'],
         'remainderIndays': _fbKey.currentState.value['remainderIndays'],
